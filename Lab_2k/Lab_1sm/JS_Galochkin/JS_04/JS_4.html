@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+<script>
+
+console.log(' 1. Функція, яка повинна визначати мінімальну довжину з цих слів ');
+ function findMinLengthOfThreeWords(word1, word2, word3) {
+
+  var x = word1.length;
+  var y = word2.length;
+  var z = word3.length;
+
+ if(x < y && x < z)
+    return x;
+  else if( y < x && y < z)
+    return y;
+  else 
+    return z;
+};
+console.log(findMinLengthOfThreeWords('a','be','see'));
+
+console.log(' 2. Функція, яка повертає масив де кожний елемент є непарним числом заданого масиву ');
+function filterOddElements(arr) {
+var new_arr = [];
+for(var i=0; i<arr.length; i++) {
+if(Math.abs(arr[i]%2)==1) {
+new_arr.push(arr[i]);
+}
+}
+return new_arr;
+};
+console.log(filterOddElements([1,2,3,4,5]));
+
+console.log(' 3. Функція, яка повертає довжину самого короткого слова, що міститься у даному масиві ');
+function getLengthOfShortestElement(arr){
+if(arr.length ===0) {
+return 0;
+}
+
+let getShortest = arr[0];
+
+for(let i=0; i<arr.length;i++) {
+if(arr[i].length < getShortest.length){
+getShortest = arr[i];
+}
+}
+return getShortest.length;
+};
+console.log(getLengthOfShortestElement(["one", "two", "three"]));
+
+console.log(' 4. Функція, яка повертає новий масив, що містить всі елементи вкладених масивів даного масиву ');
+function joinArrayOfArrays(arr){
+let result = [];
+for (let i=0; i<arr.length;i++){
+result = result.concat(arr[i]);
+}
+return result;
+}
+var output = joinArrayOfArrays([
+[1,4],
+[true,false],
+["x","y"],
+]);
+console.log(output);
+
+console.log(' 5. Функція, яка повертає саме маленьке число в даному масиві ');
+function findSmallestNumberAmongMixedElements(arr){
+var smallest = null;
+if(arr.length === 0){
+return 0;
+}
+for (let i=0; i<arr.length;i++){
+var el = arr[i];
+if(typeof el === 'number' && (smallest === null || smallest > el)){
+smallest = el;
+}
+}
+if(smallest === null){
+return 0;
+}
+return smallest;
+};
+var output1 = findSmallestNumberAmongMixedElements([4,"lincoln",9,"octopus"]);
+console.log(output1);
+
+console.log(' 6. Функція, яка повертає суму послідовності чисел від нуля до даного числа ');
+function computeSummationToN(n){
+var sum = 0;
+for(var i=0; i<=n; i++){
+sum += i;
+}
+return sum;
+}
+console.log(computeSummationToN(6));
+
+console.log(' 7. Функція, яка повертає рейтинг у форматі шкали ECTS ');
+function convertScoreToGrade(number){
+var answer;
+if(number<0 && number>100){
+answer = "INVALID SCORE";
+}
+else if (number<=34 && number>=0){
+  	answer = "F";
+  }
+else if (number<=59 && number>=35){
+  	answer = "Fx";
+  }
+  else if (number<=68 && number>=60){
+  	answer = "E";
+  }
+  else if (number<=74 && number>=69){
+  	answer = "D";
+  }
+ else if (number<=81 && number>=75){
+  	answer = "C";
+  }
+  else if (number<=89 && number>=82){
+  	answer = "B";
+  }
+  else if (number<=100 && number>=90) {
+  	answer = "A";
+  }
+ return answer;
+};
+console.log('91 is - ' + convertScoreToGrade(91))
+
+console.log(' 8. Функція, яка повертає найдовше слово з даних слів ');
+function getLongestOfThreeWords(word1,word2,word3){
+ var result = 0;
+  var newArray = [word1, word2, word3]
+  var longest;
+  for (var i=0; i < newArray.length;  i++){
+  	if ( newArray[i].length > result){
+  		result = newArray[i].length;
+  		longest = newArray[i];
+  	}
+  } 
+  return longest;
+};
+
+console.log(getLongestOfThreeWords('these', 'three', 'words'));
+
+console.log(' 9. Функція, яка повертає добуток цих чисел ');
+function multiply(num1,num2){
+var result = 0;
+	for (var i = 0; i < num2; i++){
+		result += num1;
+	}
+	if (num2 < 0){
+		for (var j = 0; j < num1; j++){
+		result += num2;
+		}
+	}
+	return result;
+};
+
+console.log('4 * 7 = ' + multiply(7, 4));
+
+console.log(' 10. Функція, яка повертає суму чисел, що знаходяться між цими даними цілими числами ');
+function computeSumBetween(num1,num2){
+if (num1 >= num2) { 
+return 0; 
+}
+  let sum = 0;
+  for (let i = num1; i < num2; i++) {
+    sum += i;
+  }
+  return sum;
+}
+console.log(computeSumBetween(2,5));
+
+console.log('All done ;)');
+</script>
+
+</body>
+</html>
