@@ -1,0 +1,15 @@
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\bin\Debug\net6.0\LABA_05.exe
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\bin\Debug\net6.0\LABA_05.deps.json
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\bin\Debug\net6.0\LABA_05.runtimeconfig.json
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\bin\Debug\net6.0\LABA_05.dll
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\bin\Debug\net6.0\LABA_05.pdb
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\obj\Debug\net6.0\LABA_05.csproj.AssemblyReference.cache
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\obj\Debug\net6.0\LABA_05.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\obj\Debug\net6.0\LABA_05.AssemblyInfoInputs.cache
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\obj\Debug\net6.0\LABA_05.AssemblyInfo.cs
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\obj\Debug\net6.0\LABA_05.csproj.CoreCompileInputs.cache
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\obj\Debug\net6.0\LABA_05.dll
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\obj\Debug\net6.0\refint\LABA_05.dll
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\obj\Debug\net6.0\LABA_05.pdb
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\obj\Debug\net6.0\LABA_05.genruntimeconfig.cache
+C:\Users\yonaaani\source\repos\LABA_05\LABA_05\obj\Debug\net6.0\ref\LABA_05.dll
