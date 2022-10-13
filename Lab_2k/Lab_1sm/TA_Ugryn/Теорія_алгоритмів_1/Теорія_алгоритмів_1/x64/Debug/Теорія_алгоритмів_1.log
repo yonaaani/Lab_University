@@ -1,0 +1,5 @@
+﻿  Теорія_алгоритмів_1.cpp
+C:\Users\yonaaani\source\repos\Теорія_алгоритмів_1\Теорія_алгоритмів_1\Теорія_алгоритмів_1.cpp(79,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\yonaaani\source\repos\Теорія_алгоритмів_1\Теорія_алгоритмів_1\Теорія_алгоритмів_1.cpp(87,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\yonaaani\source\repos\Теорія_алгоритмів_1\Теорія_алгоритмів_1\Теорія_алгоритмів_1.cpp(35): warning C4715: 'function': not all control paths return a value
+  Теорія_алгоритмів_1.vcxproj -> C:\Users\yonaaani\source\repos\Теорія_алгоритмів_1\x64\Debug\Теорія_алгоритмів_1.exe
