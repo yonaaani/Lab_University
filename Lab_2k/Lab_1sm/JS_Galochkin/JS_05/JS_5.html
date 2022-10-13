@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+<script>
+
+console.log(' 1. Функція, яка повинна визначати визначити площу прямокутника з даних довжини та ширини сторін ');
+function computeAreaOfARectangle(a,b) {
+return a*b;
+};
+console.log(computeAreaOfARectangle(4,8));
+
+console.log(' 2. Функція, яка розраховує площу круга ');
+function computeAreaOfACircle(r){
+return r*r*3.14592;
+};
+console.log(computeAreaOfACircle(4));
+
+console.log(' 3. Функція, яка повертає задане число, підняте до заданої експоненти ');
+function computePower(num,power){
+    let answer = 1
+    // if (power == 0) return answer
+    for(let i=0;i<power;i++){
+        answer = answer * num;
+    }
+    return answer;
+};
+console.log(computePower(2,3));
+
+console.log(' 4. Функція, яка повертає квадратний корінь даного числа ');
+function computeSquareRoot(num) {
+  for (var i = 0; i < num; i++) {
+    if (i * i === num) {
+      return i;
+    }
+  }
+}
+console.log(computeSquareRoot(9));
+
+console.log(' 5. Функція, яка повертає суму букв цих слів ');
+function getLengthOfThreeWords(word1, word2, word3) {
+  var x = word1.length;
+  var y = word2.length;
+  var z = word3.length;
+  var sum = 0;
+  sum = x + y + z;
+  return sum;
+};
+console.log(getLengthOfThreeWords('some','other','words'));
+
+console.log(' 6. Функція, яка повертає новий масив в якому спочатку йдуть елементи першого масиву, а потім - елементи другого ');
+function joinArrays(array1,array2){
+var array3 = array1.concat(array2)
+return array3;
+}
+console.log(joinArrays('vishenka','kolobok'));
+
+console.log(' 7. Функція, яка повертає добуток всіх елементів масиву з даним ключем заданого об\'єкту ');
+function getProductOfAllEIementsAtProperty(a,b){
+  let c = 1;
+  let key = b;
+  let arr = a[key];
+  if (Array.isArray(arr) == false || arr.length == 0) 
+{ 
+return 0 
+}
+  for (let i = 0; i < arr.length; i++) {
+      c *= arr[i];
+  }
+  return c;
+};
+
+var obj = {
+  arr: [3, 4, 2],
+  name: "john"
+};
+var out = getProductOfAllEIementsAtProperty(obj, "arr");
+console.log(out);
+
+console.log(' 8. Функція, яка повертає суму всіх цифр з яких складається число ');
+function sumDigits(num){
+    var sum = 0, tmp;
+    while (num) {
+        tmp = num % 10;
+        num = (num - tmp) / 10;
+        sum += tmp;
+    }
+    return sum;
+};
+console.log('216 = ' + sumDigits(216));
+
+console.log(' 9. Функція, яка повертає найкоротше слово в даному масиві ');
+function findSmallestNumberAmongMixedElements(arr){
+ if (arr.length < 1) {
+      return 0;
+  }
+  let n = arr.length;
+  let lengh;
+  for (let i = 0; i < n; i++) {
+      if (typeof (arr[i]) === 'string') {
+          if (lengh === undefined) {
+              lengh = arr[i];
+          }
+          if (lengh > arr[i]) {
+              lengh = arr[i];
+          }
+      }
+  }
+  if (typeof (lengh) === undefined) { return 0 }
+  return lengh;
+};
+var out = findSmallestNumberAmongMixedElements([1233, "to", true, 'q', 'wqe', false]);
+console.log(out);
+
+console.log(' 10. Функція, яка повертає найменше число в даному масиві ');
+function findSmallestNumberAmongMixedElements(arr){
+var smallest = null;
+if(arr.length === 0){
+return 0;
+}
+for (let i=0; i<arr.length;i++){
+var el = arr[i];
+if(typeof el === 'number' && (smallest === null || smallest > el)){
+smallest = el;
+}
+}
+if(smallest === null){
+return 0;
+}
+return smallest;
+};
+var output1 = findSmallestNumberAmongMixedElements([4,"lincoln",9,"octopus"]);
+console.log(output1);
+
+console.log(' 11. Функція, яка повертає залишок ділення одного числа на інше ');
+function modulo(number1,number2){
+if(typeof(number1)!=='number' || typeof(number2)!=='number')
+{ return NaN};
+while (number1>=number2){
+number1 -= number2;
+}
+return number1;
+};
+console.log(modulo(25,4));
+
+console.log(' 12. Функція, яка перевертає (відзеркалює) кожен фрагмент з п символів у рядку, де п - це будь-яке натуральне число більше 1. ');
+function reverseString(str){
+var newStr = "";
+ for (var i = str.length - 1; i >= 0; i--) {
+      newStr += str[i];
+  }
+  return newStr;
+};
+
+function Reverse(a,b){
+let arr = [];
+let c = 0;
+let d = b;
+let n = a.length/b;
+let revArr = [];
+let join = " ";
+let temp = " ";
+for(let i =0; i<n; i++){
+arr[i] = a.slice(c,d);
+revArr[i] = reverseString(arr[i]);
+temp = revArr[i];
+join += temp;
+c+=b;
+d+=b;
+}
+return join;
+};
+console.log('a short example = ' + Reverse("a short example", 5));
+
+console.log(' 13. Функція. Є рядок парних і непарних чисел. Знайдіть, яке число є єдиним парним чи єдиним непарним числом ');
+function detectOutlierValue(str){
+var arr = str.split(" ");
+
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = parseInt(arr[i]);
+    }
+    if (arr.length < 1) {
+        return '\nNo number';
+    }
+
+    var par = 0, nepar = 0, idPar, idNepar;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 == 0) {
+            par++;
+            idPar = i;
+        } else {
+            nepar++;
+            idNepar = i;
+        }
+    }
+    if (par > 1 && nepar > 1 || par == nepar) {
+        return '\nNo unicue';
+    }
+
+    if (par == 1) {
+        return arr[idPar];
+    } else return arr[idNepar];
+};
+var output = detectOutlierValue("2 4 7 8 10");
+console.log(output);
+
+console.log(' 14. Функція. Є масив невід\'ємних цілих чисел і результуюча сума, знайдіть пару чисел, які при додаванні дають цю суму ');
+function findPairForSum(mas, sum) {
+    var rez = [];
+    for (let i = 0; i < mas.length; i++) {
+        for (let j = i + 1; j < mas.length; j++) {
+            if (mas[i] + mas[j] == sum) {
+                rez.push(mas[i]);
+                rez.push(mas[j]);
+            }
+        }
+    }
+    return rez + '';
+};
+var output = findPairForSum([3, 34, 4, 12, 5, 2], 9);
+console.log(output);
+
+console.log(' 15. Функція. Є два рядки. Перевірте, чи є ці рядки дзеркальним відображенням? ');
+function ifDzerkal(str1, str2) {
+    var rez = false;
+    if (str1.length != str2.length) {
+        return rez;
+    }
+    for (let i = 0; i < str2.length; i++) {
+        if (str2[i] == str1[0]) {
+            rez = true;
+            for (let j = 0, l = i; j < str1.length; j++, l++) {
+                if (l == str2.length) {
+                    l = 0;
+                }
+                if (str2[l] != str1[j]) {
+                    rez = false;
+                }
+            }
+        }
+    }
+    return rez;
+}
+var output = ifDzerkal("hello world", "orldhello w");
+console.log(output);
+
+console.log(' 16. Функція. Побудувати функцію бінарного пошуку ');
+function binarySerch(arr, num) {
+    var index = 'no number';
+    var mid = parseInt(arr.length / 2);
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[mid] == num) {
+            index = mid;
+            break;
+        }
+        if (arr[mid] > num) {
+            mid = parseInt(mid / 2);
+        } else
+            mid = parseInt(mid + (mid / 2));
+    }
+    return index;
+}
+var arr = [1, 3, 16, 22, 31, 33, 34];
+var output = binarySerch(arr, 31);
+console.log(output);
+
+console.log(' 17. Функція. Ізограма ');
+function isIzogram(str) {
+    var rez = true;
+    for (let i = 0; i < str.length; i++) {
+        for (let j = i + 1; j < str.length; j++) {
+            if (str[i] == str[j]) {
+                rez = false;
+                break;
+            }
+        }
+    }
+    return rez;
+}
+var output = isIzogram("exampl");
+console.log('exampl - ' + output);
+
+console.log(' 18. Функція. Паліндром ');
+function isPalindrom(str) {
+    var rez = true;
+    for (let i = 0; i < parseInt(str.length / 2); i++) {
+        if (str[i] != str[str.length - 1 - i]) {
+            rez = false;
+            break;
+        }
+    }
+    return rez;
+}
+var output = isPalindrom("helloolleh");
+console.log('helloolleh - ' + output);
+
+
+console.log('\n' + 'All done ;)');
+</script>
+
+</body>
+</html>
