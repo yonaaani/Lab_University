@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+<script>
+
+console.log(' Функція, яка повертає значення властивості objecta ');
+function getProperty(obj){
+return obj;
+}
+console.log(getProperty(15));
+
+console.log(' Функція, яка додає нову властивість objecta ');
+function addProperty(myObj,myProperty){
+return myObj+myProperty;
+}
+console.log(addProperty(15,'hi'));
+
+console.log(' Функція, яка видаляє певну частину за певним ключем ');
+function removeProperty(name,age){
+let user = {     
+  name: "Іван",  
+  age: 30        
+};
+delete user.name;
+}
+console.log(removeProperty('Іван', 30));
+
+console.log(' Функція, яка виводить surname та name відокремлені одним пробілом ');
+function getFullName(name,surname){
+var result = name+' ' + surname;
+return result;
+}
+console.log(getFullName('Joe','Smith'));
+
+console.log(' Функція, яка визначає кількість символів у слові ');
+function getLengthOfWord(str){
+return (str.length);
+}
+console.log(getLengthOfWord("Вася"));
+
+console.log(' Функція, яка визначає кількість символів у двох словах ');
+function getLengthOfTwoWord(str, str1){
+return (str.length+str1.length);
+}
+console.log(getLengthOfTwoWord("Вася","Поштар"));
+
+console.log(' Функція, яка перевіряє чи число є парним ');
+function isEven(number){
+return number % 2 === 0 ? "Odd" : "Even"
+}
+console.log('3 = ' + isEven(3));
+console.log('2 = ' + isEven(2));
+
+console.log(' Функція, яка перевіряє чи число більше за 2 ');
+function isGreaterThan(number){
+return number>2;
+}
+console.log('4 > 2? ' + isGreaterThan(4));
+
+console.log(' Функція, яка перевіряє чи однакову кількість літер мають два слова ');
+function isSameLength(str,str1){
+return (str.length==str1.length);
+}
+console.log(isSameLength("Вася","Поштар"));
+
+console.log(' Функція, яка перевіряє дві умови - чи число є парним і більше десяти ');
+function isEvenAndGreaterThanTen(number){
+return number>10 && number% 2 === 0;
+}
+console.log('4 > 10 і парне? ' + isEvenAndGreaterThanTen(4));
+console.log('12 > 10 і парне? ' + isEvenAndGreaterThanTen(12));
+
+console.log(' Функція, яка розраховує площу трикутника на основі значень довжин висоти та основи ');
+function computeAreaOfATriangle(a,h){
+return (1/2*h*a);
+}
+console.log('Площа = ' + computeAreaOfATriangle(16,5));
+
+</script>
+
+</body>
+</html>
