@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task7</title>
+</head>
+<body>
+<select name="country" id="country">
+    <option value="ger">Germany</option>
+    <option value="usa">USA</option>
+    <option value="ukr">Ukraine</option>
+</select>
+
+<select name="cities" id="cities"></select>
+<p></p>
+
+<script>
+    function createSelect() {
+        let chosenCountry = document.getElementById("country").value;
+        let cities;
+        if (chosenCountry === "usa") {
+            cities = ["New York", "Washington", "Boston", "Chicago"];
+        } else if (chosenCountry === "ukr") {
+            cities = ["Odessa", "Kyiv", "Harkiv", "Lviv", "Chernivtsi"];
+        } else if (chosenCountry === "ger") {
+            cities = ["Berlin", "Dresden", "Hessen"];
+        }
+        let optionStr = ""
+        for (let item of cities) {
+            optionStr += "<option>" + item + "</option>"
+        }
+        document.getElementById("cities").innerHTML = optionStr;
+    }
+
+    function createText() {
+        let chosenCountry = document.getElementById('country').selectedOptions[0].text;
+        let chosenCity = document.getElementById('cities').selectedOptions[0].text;
+        document.querySelector("body>p").textContent = chosenCountry + ", " + chosenCity;
+
+    }
+
+    document.getElementById('country').addEventListener('change', createSelect);
+    document.getElementById('cities').addEventListener('change', createText);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task6</title>
+</head>
+<body>
+<p id="elem"></p>
+<script>
+    function printSize() {
+        let currentHeight = window.innerHeight;
+        let currentWidth = window.innerWidth;
+        elem.textContent = "Width: " + currentWidth + ", Height: " + currentHeight;
+    }
+
+    window.addEventListener("resize", printSize); // resize - подія запуститься, коли відбулась зміна
+</script>
+</body>
+</html>

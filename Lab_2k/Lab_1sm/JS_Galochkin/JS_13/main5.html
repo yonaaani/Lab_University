@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task5</title>
+</head>
+<body>
+<button id="myBtn">Live button!</button>
+<div id="newElem"></div>
+<script>
+    function createText(textToAdd) {
+        let parent = document.getElementById("newElem");
+        let newElem = document.createTextNode(textToAdd);
+        parent.appendChild(newElem);
+        let linebreak = document.createElement('br');
+        parent.appendChild(linebreak);
+    }
+
+    function whenPressed() {
+        createText("I was pressed!");
+    }
+
+    function whenHover() {
+        createText("Mouse on me!");
+    }
+
+    function whenOut() {
+        createText("Mouse is not on me!");
+    }
+
+    myBtn.addEventListener("click", whenPressed);
+    myBtn.addEventListener("mouseover", whenHover);
+    myBtn.addEventListener("mouseout", whenOut);
+
+</script>
+</body>
+</html>

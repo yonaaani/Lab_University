@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task3</title>
+</head>
+<body>
+<button id ="btn1" >Click to make the page blue</button>
+<button id ="btn2" >Double click to make the page pink</button>
+<button id ="btn3" >Click and hold to make the page brown</button>
+<a href="some-url">Hover over to make the page yellow</a>
+
+<script>
+        document.getElementById("btn1").onclick = function() {
+            document.body.style.backgroundColor = "#0060aa";
+        };
+        document.getElementById("btn2").ondblclick = function() {
+            document.body.style.backgroundColor = "#efa3da";
+        };
+        document.getElementById("btn3").onmousedown = function() {
+            document.body.style.backgroundColor = "#5b4137";
+        };
+        document.getElementById("btn3").onmouseup = function() {
+            document.body.style.backgroundColor = "#ffffff";
+        };
+
+        document.querySelector("a").onmouseover = function() {  // querySelector - пошук першого входження селектору(вибраного)
+            document.body.style.backgroundColor = "#eec125";
+        };
+        document.querySelector("a").onmouseout = function() {
+            document.body.style.backgroundColor = "#ffffff";
+        };
+
+</script>
+</body>
+</html>

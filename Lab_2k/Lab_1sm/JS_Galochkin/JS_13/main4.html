@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task4</title>
+</head>
+<body>
+
+<select id="mySelect">
+    <option>Peter</option>
+    <option>John</option>
+    <option>Alice</option>
+    <option>Alex</option>
+    <option>Iren</option>
+</select>
+<button onclick="removeElement()">Choose and delete</button>
+
+<script>
+    function removeElement() {
+        let selectElem = document.getElementById("mySelect");
+        selectElem.remove(selectElem.selectedIndex);
+    }
+</script>
+
+</body>
+</html>
