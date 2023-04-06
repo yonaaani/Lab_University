@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редагування путівки</title>
+    <meta charset="utf-8" />
+    <style>.field{width:180px;}</style>
+</head>
+<body>
+    <h1>Редагування путівки</h1>
+     <form action="/edit2" method="POST">
+        <input type="hidden" name="id" value="{{voucher.id}}" />
+        <label>Id маршруту</label><br>
+        <input name="routesid" type="number" value="{{voucher.routesid}}"  class="field" /><br><br>
+        <label>Країна</label><br>
+        <input name="country" value="{{voucher.country}}"  class="field" /><br><br>
+        <label>Клімат</label><br>
+        <input name="climate" value="{{voucher.climate}}"  class="field" /><br><br>
+        <label>Кількість</label><br>
+        <input name="duration" type="number" value="{{voucher.duration}}"  class="field" /><br><br>
+        <label>Готель</label><br>
+        <input name="hotel" value="{{voucher.hotel}}"  class="field" /><br><br>
+        <label>Ціна</label><br>
+        <input name="price" type="number" value="{{voucher.price}}"  class="field" /><br><br>
+        <input type="submit" value="Надіслати" />
+     </form>
+     <a href="/2">до списку путівок</a>
+</body>
+<html>

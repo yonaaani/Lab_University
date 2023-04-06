@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>travel agency</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Список маршрутів</h1>
+    <p><a href="/create1">Додати маршрут</a></p>
+    <table>
+        <tr>
+            <th>ClientId</th>
+            <th>RouteDate</th>
+            <th>Count</th>
+            <th>Discount</th>
+            <th></th>
+        </tr>
+        {{#each routes}}
+            <tr>
+                <td>{{this.clientid}}</td>
+                <td>{{this.routedate}}</td>
+                <td>{{this.count}}</td>
+                <td>{{this.discount}}</td>
+                <td>
+                    <a href="/edit1/{{this.id}}">Edit</a>|
+                    <form action="delete1/{{this.id}}" method="POST" style="display:inline;">
+                        <input type="submit" value="Delete" />
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+    <br/>
+
+    <hr/>
+
+    <br/>
+    <a href="/">Клієнти</a>
+</body>
+<html>
