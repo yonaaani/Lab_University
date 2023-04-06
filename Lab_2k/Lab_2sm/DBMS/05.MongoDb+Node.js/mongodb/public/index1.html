@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Travel Agency</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Список маршрутів</h2>
+<form name="routeForm">
+    <input type="hidden" name="id" value="0" />
+    <div class="form-group">
+        <label for="client_id">Id клієнта:</label>
+        <input class="form-control" name="client_id" />
+    </div>
+    <div class="form-group">
+        <label for="date">Дата:</label>
+        <input class="form-control" name="date" />
+    </div>
+    <div class="form-group">
+        <label for="count">Кількість:</label>
+        <input class="form-control" name="count" />
+    </div>
+    <div class="form-group">
+        <label for="discount">Знижка:</label>
+        <input class="form-control" name="discount" />
+    </div>
+    <div class="panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Зберегти</button>
+        <a id="reset" class="btn btn-sm btn-primary">Скинути</a>
+    </div>
+</form>
+<table class="table table-condensed table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Id клієнта</th>
+            <th>Дата</th>
+            <th>Кількість</th>
+            <th>Знижка</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<br/>
+<a href="index.html" color="hotpink" target="_self">Назад до клієнтів</a>
+
+<script>
+    // Получение всех пользователей
+        async function getRoutes() {
+            // отправляет запрос и получаем ответ
+            const response = await fetch("/api/routes", {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+            // если запрос прошел нормально
+            if (response.ok === true) {
+                // получаем данные
+                const routes = await response.json();
+                let rows = document.querySelector("tbody"); 
+                routes.forEach(route => {
+                    // добавляем полученные элементы в таблицу
+                    rows.append(row(route));
+                });
+            }
+        }
+        // Получение одного пользователя
+        async function getRoute(id) {
+            const response = await fetch("/api/routes/" + id, {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+            if (response.ok === true) {
+                const route = await response.json();
+                const form = document.forms["routeForm"];
+                form.elements["id"].value = route._id;
+                form.elements["client_id"].value = route.client_id;
+                form.elements["date"].value = route.date;
+                form.elements["count"].value = route.count;
+                form.elements["discount"].value = route.discount;
+            }
+        }
+        // Добавление пользователя
+        async function createRoute(clientId, routeDate, routeCount, routeDiscount) {
+
+            let date = new Date(routeDate);
+
+            const response = await fetch("api/routes", {
+                method: "POST",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    client_id: clientId,
+                    date: date.toISOString(), 
+                    count: parseInt(routeCount,10), 
+                    discount: parseInt(routeDiscount,10)
+                })
+            });
+            if (response.ok === true) {
+                const route = await response.json();
+                reset();
+                document.querySelector("tbody").append(row(route));
+            }
+        }
+        // Изменение пользователя
+        async function editRoute(routeId, clientId, routeDate, routeCount, routeDiscount) {
+
+            let date = new Date(routeDate);
+
+            const response = await fetch("api/routes", {
+                method: "PUT",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    id: routeId,
+                    client_id: clientId,
+                    date: date.toISOString(), 
+                    count: parseInt(routeCount,10), 
+                    discount: parseInt(routeDiscount,10)
+                })
+            });
+            if (response.ok === true) {
+                const route = await response.json();
+                reset();
+                document.querySelector(`tr[data-rowid='${route._id}']`).replaceWith(row(route));
+            }
+        }
+        // Удаление пользователя
+        async function deleteRoute(id) {
+            const response = await fetch("/api/routes/" + id, {
+                method: "DELETE",
+                headers: { "Accept": "application/json" }
+            });
+            if (response.ok === true) {
+                const route = await response.json();
+                document.querySelector(`tr[data-rowid='${route._id}']`).remove();
+            }
+        }
+   
+        // сброс формы
+        function reset() {
+            const form = document.forms["routeForm"];
+            form.reset();
+            form.elements["id"].value = 0;
+        }
+        // создание строки для таблицы
+        function row(route) {
+   
+            const tr = document.createElement("tr");
+            tr.setAttribute("data-rowid", route._id);
+   
+            const idTd = document.createElement("td");
+            idTd.append(route._id);
+            tr.append(idTd);
+
+            const client_idTd = document.createElement("td");
+            client_idTd.append(route.client_id);
+            tr.append(client_idTd);
+   
+   
+            const dateTd = document.createElement("td");
+            dateTd.append(route.date);
+            tr.append(dateTd);
+   
+            const countTd = document.createElement("td");
+            countTd.append(route.count);
+            tr.append(countTd);
+
+            const discountTd = document.createElement("td");
+            discountTd.append(route.discount);
+            tr.append(discountTd);
+     
+            const linksTd = document.createElement("td");
+   
+            const editLink = document.createElement("a");
+            editLink.setAttribute("data-id", route._id);
+            editLink.setAttribute("style", "cursor:pointer;padding:15px;");
+            editLink.append("Змінити");
+            editLink.addEventListener("click", e => {
+   
+                e.preventDefault();
+                getRoute(route._id);
+            });
+            linksTd.append(editLink);
+   
+            const removeLink = document.createElement("a");
+            removeLink.setAttribute("data-id", route._id);
+            removeLink.setAttribute("style", "cursor:pointer;padding:15px;");
+            removeLink.append("Видалити");
+            removeLink.addEventListener("click", e => {
+   
+                e.preventDefault();
+                deleteRoute(route._id);
+            });
+   
+            linksTd.append(removeLink);
+            tr.appendChild(linksTd);
+   
+            return tr;
+        }
+        // сброс значений формы
+        document.getElementById("reset").addEventListener("click", e => {
+   
+            e.preventDefault();
+            reset();
+        })
+   
+        // отправка формы
+        document.forms["routeForm"].addEventListener("submit", e => {
+            e.preventDefault();
+            const form = document.forms["routeForm"];
+            const id = form.elements["id"].value;
+            const client_id = form.elements["client_id"].value;
+            const date = form.elements["date"].value;
+            const count = form.elements["count"].value;
+            const discount = form.elements["discount"].value;
+            if (id == 0)
+                createRoute(client_id, date, count, discount);
+            else
+                editRoute(id, client_id, date, count, discount);
+        });
+   
+        // загрузка пользователей
+        getRoutes();
+    </script>
+
+
+</body>
+</html>

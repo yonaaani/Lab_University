@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Travel Agency</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Список путівок</h2>
+<form name="voucherForm">
+    <input type="hidden" name="id" value="0" />
+    <div class="form-group">
+        <label for="routers_id">Id Маршрута:</label>
+        <input class="form-control" name="routers_id" />
+    </div>
+    <div class="form-group">
+        <label for="country">Країна:</label>
+        <input class="form-control" name="country" />
+    </div>
+    <div class="form-group">
+        <label for="climate">Клімат:</label>
+        <input class="form-control" name="climate" />
+    </div>
+    <div class="form-group">
+        <label for="duration">Тривалість:</label>
+        <input class="form-control" name="duration" />
+    </div>
+    <div class="form-group">
+        <label for="hotel">Готель:</label>
+        <input class="form-control" name="hotel" />
+    </div>
+    <div class="form-group">
+        <label for="price">Ціна:</label>
+        <input class="form-control" name="price" />
+    </div>
+    <div class="panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Зберегти</button>
+        <a id="reset" class="btn btn-sm btn-primary">Скинути</a>
+    </div>
+</form>
+<table class="table table-condensed table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Id Маршрута</th>
+            <th>Країна</th>
+            <th>Клімат</th>
+            <th>Тривалість</th>
+            <th>Готель</th>
+            <th>Ціна</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<br/>
+<a href="index.html" color="hotpink" target="_self">Назад до клієнтів</a>
+
+<script>
+    // Получение всех пользователей
+        async function getVouchers() {
+            // отправляет запрос и получаем ответ
+            const response = await fetch("/api/vouchers", {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+            // если запрос прошел нормально
+            if (response.ok === true) {
+                // получаем данные
+                const vouchers = await response.json();
+                let rows = document.querySelector("tbody"); 
+                vouchers.forEach(voucher => {
+                    // добавляем полученные элементы в таблицу
+                    rows.append(row(voucher));
+                });
+            }
+        }
+        // Получение одного пользователя
+        async function getVoucher(id) {
+            const response = await fetch("/api/vouchers/" + id, {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+            if (response.ok === true) {
+                const voucher = await response.json();
+                const form = document.forms["voucherForm"];
+                form.elements["id"].value = voucher._id;
+                form.elements["routers_id"].value = voucher.routers_id;
+                form.elements["country"].value = voucher.country;
+                form.elements["climate"].value = voucher.climate;
+                form.elements["duration"].value = voucher.duration;
+                form.elements["hotel"].value = voucher.hotel;
+                form.elements["price"].value = voucher.price;
+            }
+        }
+        // Добавление пользователя
+        async function createVoucher(routerId, voucherCountry, voucherClimate, voucherDuration, voucherHotel, voucherPrice) {
+
+            const response = await fetch("api/vouchers", {
+                method: "POST",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    routers_id: routerId, 
+                    country: voucherCountry, 
+                    climate: voucherClimate, 
+                    duration: parseInt(voucherDuration, 10), 
+                    hotel: voucherHotel, 
+                    price: parseInt(voucherPrice, 10)
+                })
+            });
+            if (response.ok === true) {
+                const voucher = await response.json();
+                reset();
+                document.querySelector("tbody").append(row(voucher));
+            }
+        }
+        // Изменение пользователя
+        async function editVoucher(voucherId, routerId, voucherCountry, voucherClimate, voucherDuration, voucherHotel, voucherPrice) {
+
+            const response = await fetch("api/vouchers", {
+                method: "PUT",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    id: voucherId,
+                    routers_id: routerId, 
+                    country: voucherCountry, 
+                    climate: voucherClimate, 
+                    duration: parseInt(voucherDuration, 10), 
+                    hotel: voucherHotel, 
+                    price: parseInt(voucherPrice, 10)
+                })
+            });
+            if (response.ok === true) {
+                const voucher = await response.json();
+                reset();
+                document.querySelector(`tr[data-rowid='${voucher._id}']`).replaceWith(row(voucher));
+            }
+        }
+        // Удаление пользователя
+        async function deleteVoucher(id) {
+            const response = await fetch("/api/vouchers/" + id, {
+                method: "DELETE",
+                headers: { "Accept": "application/json" }
+            });
+            if (response.ok === true) {
+                const voucher = await response.json();
+                document.querySelector(`tr[data-rowid='${voucher._id}']`).remove();
+            }
+        }
+   
+        // сброс формы
+        function reset() {
+            const form = document.forms["voucherForm"];
+            form.reset();
+            form.elements["id"].value = 0;
+        }
+        // создание строки для таблицы
+        function row(voucher) {
+   
+            const tr = document.createElement("tr");
+            tr.setAttribute("data-rowid", voucher._id);
+   
+            const idTd = document.createElement("td");
+            idTd.append(voucher._id);
+            tr.append(idTd);
+
+            const routers_idTd = document.createElement("td");
+            routers_idTd.append(voucher.routers_id);
+            tr.append(routers_idTd);
+   
+            const countryTd = document.createElement("td");
+            countryTd.append(voucher.country);
+            tr.append(countryTd);
+   
+            const climateTd = document.createElement("td");
+            climateTd.append(voucher.climate);
+            tr.append(climateTd);
+
+            const durationTd = document.createElement("td");
+            durationTd.append(voucher.duration);
+            tr.append(durationTd);
+
+            const hotelTd = document.createElement("td");
+            hotelTd.append(voucher.hotel);
+            tr.append(hotelTd);
+
+            const priceTd = document.createElement("td");
+            priceTd.append(voucher.price);
+            tr.append(priceTd);
+     
+            const linksTd = document.createElement("td");
+   
+            const editLink = document.createElement("a");
+            editLink.setAttribute("data-id", voucher._id);
+            editLink.setAttribute("style", "cursor:pointer;padding:15px;");
+            editLink.append("Змінити");
+            editLink.addEventListener("click", e => {
+   
+                e.preventDefault();
+                getVoucher(voucher._id);
+            });
+            linksTd.append(editLink);
+   
+            const removeLink = document.createElement("a");
+            removeLink.setAttribute("data-id", voucher._id);
+            removeLink.setAttribute("style", "cursor:pointer;padding:15px;");
+            removeLink.append("Видалити");
+            removeLink.addEventListener("click", e => {
+   
+                e.preventDefault();
+                deleteVoucher(voucher._id);
+            });
+   
+            linksTd.append(removeLink);
+            tr.appendChild(linksTd);
+   
+            return tr;
+        }
+        // сброс значений формы
+        document.getElementById("reset").addEventListener("click", e => {
+   
+            e.preventDefault();
+            reset();
+        })
+   
+        // отправка формы
+        document.forms["voucherForm"].addEventListener("submit", e => {
+            e.preventDefault();
+            const form = document.forms["voucherForm"];
+            const id = form.elements["id"].value;
+            const routers_id = form.elements["routers_id"].value;
+            const country = form.elements["country"].value;
+            const climate = form.elements["climate"].value;
+            const duration = form.elements["duration"].value;
+            const hotel = form.elements["hotel"].value;
+            const price = form.elements["price"].value;
+            if (id == 0)
+                createVoucher(routers_id, country, climate, duration, hotel, price);
+            else
+                editVoucher(id, routers_id, country, climate, duration, hotel, price);
+        });
+   
+        // загрузка пользователей
+        getVouchers();
+    </script>
+
+
+</body>
+</html>
