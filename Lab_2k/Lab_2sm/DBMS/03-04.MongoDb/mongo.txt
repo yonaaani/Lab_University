@@ -1,0 +1,270 @@
+db.users.update(
+    {name: "vania"},
+    {
+        $set: {
+            posts: [
+                {title: "javascript", text: "js top"},
+                {title: "mongo", text: "mongo top"}
+            ]
+        }
+    }
+)
+
+//Запити
+// шукаємо користувача в якого поле є javascript
+
+db.users.find(
+    {
+posts: {
+    $elemMatch: {
+        title: "javascript"
+    }
+}
+    }
+
+)
+
+db.vouchers.insert({
+ 
+})
+
+
+// Запити Л.б.#4
+
+5. 
+Вивести всі машини, які були випущені в 1990 році і пізніше, впрорядкувати
+за роком випуску в порядку спадання
+
+db.Cars.find({year:{$gte:1990}}).sort({year:-1});
+
+6.
+Вивести всі машини марки Audi білого кольору (White)
+
+db.Cars.find({brand:"Audi",color:"White"});
+
+7.
+Вибрати машини, які дешевше 25000, впорядкувати за зростанням і вивести
+перші 3.
+
+db.Cars.find({price:{$lt:25000}}).sort({price:1}).limit(3);
+
+8.
+Вивести машини чорного кольору (Black) або машини марки Mersedes
+
+db.Cars.find({$or:[{color:"Black"},{brand:"Mersedes"}]});
+
+
+9.
+Для всіх машин, які старше 30 років (1988) додати поле discount і встановити
+значення – 30.
+
+db.Cars.update(
+    {year:{$gt: 1988}},
+    {
+       $set: {discount: 30}
+    }
+)
+ 
+ 10.
+Вивести всі машини, крім машин марки BMW.
+
+db.Cars.find({brand:{$ne: "BMW"}});
+
+11. ????
+Вивести суму цін, середню ціну, мінімальну ціну і макси
+мальну ціну на
+автомобілі марки Volvo.
+
+db.Cars.aggregate([ 
+   { 
+      $match: 
+       { 
+          brand: "Volvo" 
+       } 
+    }, 
+   { 
+      $group: 
+      { 
+        _id: null, 
+        sum: { $sum: "$price" }, 
+        avg: { $avg: "$price" }, 
+        min: { $min: "$price" }, 
+        max: { $max: "$price" } 
+     }
+   } 
+])
+
+14. ?????
+Вивести всі постачання(Supplies), для яких постачальник(supplier) 
+має статус Активний (Suppliers.isActive = true)
+
+db.Supplies.aggregate([
+    {
+        $lookup:
+        {
+            from: 'Suppliers',
+            localField: 'id',
+            foreignField: 'id',
+            pipeline: [
+                {
+                    $match: {
+                    isActive: "true"
+                   }
+                }
+            ],
+             as: 'Supplies'
+        }
+        
+    }
+])
+
+db.Supplies.aggregate([
+    {
+        $lookup:
+        {
+            from: 'Suppliers',
+            localField: 'id',
+            foreignField: 'id',
+            as: 'Supplies'
+        }
+        
+    },
+    {
+        $match:{
+            isActive: "true"
+        }
+    }
+])
+
+
+db.Supplies.find({"Suppliers.isActive:true"})
+
+////////////////////////////////////////////////////////
+db.Supplies.aggregate([
+    {
+    $lookup: {
+        from: "Suppliers", 
+        localField: "supplier", 
+        foreignField: "id", 
+        as: "Suppliers"
+        }
+    }, 
+        {
+            $match: {
+                "Suppliers.isActive": true
+            }
+        }
+    ]);
+////////////////////////////////////////////////////////////
+
+15.
+Вивести ім'я компанії (companyName), адреса (address), телефон (phone)
+постачальників (Suppliers), дату постачання
+(date) з колекції Supplies, які постачали
+автомобілі марки Mersedes, впорядкувати за датою
+постачання в порядку спадання
+(Для перетворення рядка в дату можна використовувати $dateFromString).
+
+
+db.Supplies.aggregate([
+  {
+    $lookup: {
+      from: "Suppliers",
+      localField: "supplier",
+      foreignField: "id",
+      as: "supplier_info"
+    }
+  },
+  {
+    $unwind: "$supplier_info"
+  },
+  {
+    $lookup: {
+      from: "Cars",
+      localField: "carID",
+      foreignField: "id",
+      as: "car_info"
+    }
+  },
+  {
+    $unwind: "$car_info"
+  },
+  {
+    $match: {
+      "car_info.brand": "Mercedes"
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      "supplier_info.companyName": 1,
+      "supplier_info.address": 1,
+      "supplier_info.phone": 1,
+      date: {
+        $dateFromString: {
+          dateString: "$date"
+        }
+      }
+    }
+  },
+  {
+    $sort: {
+      date: -1
+    }
+  }
+])
+
+
+16.
+Вивести список всіх існуючих кольорів автомобілів
+
+db.Cars.aggregate([
+    {
+    $group:{
+        _id: "$color"
+    }
+    }
+])
+
+
+17.
+Вивести список всіх існуючих
+кольорів
+для BMW
+
+db.Cars.aggregate([
+    {
+        $match:{
+            brand:"BMW"
+        }
+    },
+    {
+    $group:{
+        _id: "$color"
+    }
+    }
+])
+
+18.
+Вивести унікальний
+список всіх брендів і відповідну
+їм кількість наявних
+автомобілів
+
+db.Cars.aggregate([
+    {
+        $group:{
+            _id: "$brand",
+            count: {
+                '$count':{}
+            }
+        }
+    }
+])
+
+19.
+
+db.Cars.drop()
+
+20.
+db.command("dropDatabase")
