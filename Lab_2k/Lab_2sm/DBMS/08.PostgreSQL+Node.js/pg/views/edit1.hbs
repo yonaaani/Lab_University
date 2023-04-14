@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редагування маршруту</title>
+    <meta charset="utf-8" />
+    <style>.field{width:180px;}</style>
+</head>
+<body>
+    <h1>Редагування маршруту</h1>
+     <form action="/edit1" method="POST">
+        <input type="hidden" name="id" value="{{route.id}}" />
+        <label>Id клієнта</label><br>
+        <input name="clientid" type="number" value="{{route.clientid}}"  class="field" /><br><br>
+        <label>Дата</label><br>
+        <input name="routedate" type="date" value="{{route.routedate}}"  class="field" /><br><br>
+        <label>Кількість</label><br>
+        <input name="count" type="number" value="{{route.count}}"  class="field" /><br><br>
+        <label>Знижка</label><br>
+        <input name="discount" type="number" value="{{route.discount}}"  class="field" /><br><br>
+        <input type="submit" value="Надіслати" />
+     </form>
+     <a href="/1">до списку маршрутів</a>
+</body>
+<html>

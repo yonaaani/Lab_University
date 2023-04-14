@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>travel agency</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Список путівок</h1>
+    <p><a href="/create2">Додати путівку</a></p>
+    <table>
+        <tr>
+            <th>RoutesId</th>
+            <th>Country</th>
+            <th>Climate</th>
+            <th>Duration</th>
+            <th>Hotel</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        {{#each vouchers}}
+            <tr>
+                <td>{{this.routesid}}</td>
+                <td>{{this.country}}</td>
+                <td>{{this.climate}}</td>
+                <td>{{this.duration}}</td>
+                <td>{{this.hotel}}</td>
+                <td>{{this.price}}</td>
+                <td>
+                    <a href="/edit2/{{this.id}}">Edit</a>|
+                    <form action="delete2/{{this.id}}" method="POST" style="display:inline;">
+                        <input type="submit" value="Delete" />
+                    </form>
+                </td>
+                
+            </tr>
+        {{/each}}
+        
+    </table>
+    <br/>
+    <form method="post" action="/updatePrice2">
+  <label for="duration">Duration:</label>
+  <input type="number" name="duration" id="duration" required>
+  <button type="submit">Update prices</button>
+</form>
+    <hr/>
+
+    <br/>
+    <a href="/">Клієнти</a>
+</body>
+<html>
