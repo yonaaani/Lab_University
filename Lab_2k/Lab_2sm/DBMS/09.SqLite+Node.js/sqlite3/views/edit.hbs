@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редагування клієнта</title>
+    <meta charset="utf-8" />
+    <style>.field{width:180px;}</style>
+</head>
+<body>
+    <h1>Редагування клієнта</h1>
+     <form action="/edit" method="POST">
+        <input type="hidden" name="id" value="{{client.id}}" />
+        <label>Прізвище</label><br>
+        <input name="surname" value="{{client.surname}}"  class="field" /><br><br>
+        <label>Ім'я</label><br>
+        <input name="firstname" value="{{client.firstname}}"  class="field" /><br><br>
+        <label>Адреса</label><br>
+        <input name="address" value="{{client.address}}"  class="field" /><br><br>
+        <label>Телефон</label><br>
+        <input name="phone" type="number" value="{{client.phone}}"  class="field" /><br><br>
+        <input type="submit" value="Надіслати" />
+     </form>
+     <a href="/">до списку клієнтів</a>
+</body>
+<html>
