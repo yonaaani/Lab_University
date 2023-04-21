@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body ng-controller="myController">
+  <h4>Завдання 1</h4>
+  <p>Ім'я: <span ng-bind="name"></span></p>
+  <p>Прізвище: <span ng-bind="surname"></span></p>
+  <p>Вік: <span ng-bind="age"></span></p>
+  <hr/>
+  <h4>Завдання 2</h4>
+  <p>{{ userInfo }}</p>
+  <hr/>
+  <h4>Завдання 3</h4>
+  <ul>
+		<li ng-repeat="language in languages">{{ language }}</li>
+	</ul>
+  <ul>
+		<li ng-repeat="(city, country) in countries">{{ city }}: {{ country }}</li>
+	</ul>
+  <hr/>
+  <h4>Завдання 4</h4>
+  <ul>
+    <li ng-repeat="worker in workers">
+      Ім'я: {{worker.name}}, вік: {{worker.age}}, зарплата: {{worker.salary}}
+    </li>
+  </ul>
+  <hr/>
+  <h4>Завдання 5</h4>
+  <p>{{ name }}</p>
+  <a href="#" ng-click="changeName()" ng-click="scrollToTop($event)">Змінити ім'я</a>
+  <hr/>
+  <h4>Завдання 6</h4>
+  <p>Ім'я: <span ng-bind="name6"></span></p>
+  <a href="#" ng-click="changeName6()" ng-click="scrollToTop($event)">Змінити ім'я</a>
+  <p>Прізвище: <span ng-bind="surname6"></span></p>
+  <a href="#" ng-click="changeSurname6()" ng-click="scrollToTop($event)">Змінити прізвище</a>
+  <p>Вік: <span ng-bind="age6"></span></p>
+  <a href="#" ng-click="changeAge6()" ng-click="scrollToTop($event)">Змінити вік</a>
+  <hr/>
+  <h4>Завдання 7</h4>
+  <ul>
+    <li ng-repeat="language7 in languages7">{{ language7 }}</li>
+  </ul>
+  <a href="#" ng-click="changeLanguage7()" ng-click="scrollToTop($event)">Змінити мову</a>
+  <hr/>
+  <h4>Завдання 8</h4>
+  <ul>
+    <li ng-repeat="language8 in languages8">{{ language8 }}</li>
+  </ul>
+  <a href="#" ng-click="addLanguage8()" ng-click="scrollToTop($event)">Додати мову в кінець</a>
+  <hr/>
+  <h4>Завдання 9</h4>
+  <ul>
+		<li ng-repeat="language9 in languages9">{{language9}}</li>
+	</ul>
+	<a href="#" ng-click="addLanguage9()" ng-click="scrollToTop($event)">Додати мову на початок</a>
+  <hr/>
+  <h4>Завдання 10</h4>
+  <ul>
+		<li ng-repeat="language10 in languages10">{{ language10 }}</li>
+	</ul>
+	<a href="#" ng-click="removeLanguage10('php')" ng-click="scrollToTop($event)">Видалити php</a>
+  
+  <h4>Завдання 11</h4>
+  <ul>
+    <li ng-repeat="language11 in languages11">{{ language11 }}</li>
+  </ul>
+  <a href="#" ng-click="removeLanguage11('html')" ng-click="scrollToTop($event)">Видалити html</a>
+  <hr/>
+
+</body>
+
+</html>
