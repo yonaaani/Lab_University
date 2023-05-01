@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="styles.css"></script>
+</head>
+
+<body ng-controller="myController">
+  <h4>Завдання 1</h4>
+  <span ng-repeat="number in numbers">{{ number + 3 }}</span>
+  <hr/>
+  <h4>Завдання 2</h4>
+  <span ng-repeat="number2 in numbers2">{{ number2 * number2 }}</span>
+  <hr/>
+  <h4>Завдання 3</h4>
+  <ul>
+    <li ng-repeat="number3 in numbers3">{{ number3 }}</li>
+  </ul>
+  <a href="#" ng-click="reverseList3()">Reverse list</a>
+  <hr/>
+  <h4>Завдання 4</h4>
+  <ul>
+    <li ng-repeat="number4 in numbers4">{{ number4 }}</li>
+  </ul>
+  <a href="#" ng-click="sortList4()">Sort list</a>
+  <hr/>
+  <h4>Завдання 5</h4>
+  <ul>
+    <li ng-click="changeLanguage5($index)" ng-repeat="language5 in languages5">{{ language5 }}</li>
+  </ul>
+  <hr/>
+  <h4>Завдання 6</h4>
+  <ul>
+    <li ng-repeat="user in users">{{ user }}</li>
+  </ul>
+  <a ng-click="addUser()" ng-show="newUsers.length">Add User</a>
+  <hr/>
+  <h4>Завдання 7</h4>
+  <table>
+    <tbody>
+      <tr ng-repeat="row in numbers7">
+        <td ng-repeat="number in row">{{number}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
+  <h5>Завдання 8</h5>
+  <ul>
+    <li ng-repeat="(country, cities) in workers">
+      {{country}}:
+      <span ng-repeat="city in cities">{{city}} </span>
+    </li>
+  </ul>
+
+</body>
+
+</html>
