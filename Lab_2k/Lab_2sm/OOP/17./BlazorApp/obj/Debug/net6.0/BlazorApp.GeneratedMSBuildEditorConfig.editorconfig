@@ -1,0 +1,109 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = BlazorApp
+build_property.RootNamespace = BlazorApp
+build_property.ProjectDir = c:\Users\yonaaani\source\vscode\BlazorApp\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = c:\Users\yonaaani\source\vscode\BlazorApp
+build_property._RazorSourceGeneratorDebug = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/BlazingPizzaSite/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QmxhemluZ1BpenphU2l0ZVxBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/BlazingPizzaSite/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = QmxhemluZ1BpenphU2l0ZVxQYWdlc1xDb3VudGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/BlazingPizzaSite/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = QmxhemluZ1BpenphU2l0ZVxQYWdlc1xGZXRjaERhdGEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/BlazingPizzaSite/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = QmxhemluZ1BpenphU2l0ZVxQYWdlc1xJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/BlazingPizzaSite/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = QmxhemluZ1BpenphU2l0ZVxTaGFyZWRcU3VydmV5UHJvbXB0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/BlazingPizzaSite/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = QmxhemluZ1BpenphU2l0ZVxfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/Pages/Todo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9kby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/BlazingPizzaSite/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = QmxhemluZ1BpenphU2l0ZVxTaGFyZWRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-51kyn2wlf7
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/BlazingPizzaSite/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = QmxhemluZ1BpenphU2l0ZVxTaGFyZWRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-o3ljgt7vqp
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-3dsd3z3yec
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-7cxxmz0cwl
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/BlazingPizzaSite/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QmxhemluZ1BpenphU2l0ZVxQYWdlc1xFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/BlazingPizzaSite/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QmxhemluZ1BpenphU2l0ZVxQYWdlc1xfSG9zdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/BlazingPizzaSite/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QmxhemluZ1BpenphU2l0ZVxQYWdlc1xfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/yonaaani/source/vscode/BlazorApp/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
