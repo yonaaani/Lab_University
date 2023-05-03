@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="styles.css"></script>
+</head>
+
+<body ng-controller="myController">
+  <h4>Завдання 1</h4>
+  <label>Введіть число:</label>
+  <input type="number" ng-model="number" />
+  <p>Квадрат числа: {{number * number}}</p>
+  <hr/>
+  <h4>Завдання 2</h4>
+  <label for="numberInput2">Введіть число:</label>
+  <input type="number2" id="numberInput2" ng-model="number2" />
+  <p>Квадрат числа {{number2}} = {{square2}}.</p>
+  <hr/>
+  <h4>Завдання 3</h4>
+  <h5>Список країн</h5>
+	<ul>
+		<li ng-repeat="country in countries">{{country}}</li>
+	</ul>
+	<label>Додати нову країну: </label>
+	<input type="text" ng-model="newCountry" ng-blur="addCountry()">
+  <hr/>
+  <h4>Завдання 4</h4>
+  <h5>Checkbox завдання</h5>
+	<label>
+		<input type="checkbox" ng-model="isChecked"> Checkbox
+	</label>
+	<br><br>
+	<a href="#" ng-click="isChecked=true">Check the checkbox</a>
+	<br>
+	<a href="#" ng-click="isChecked=false">Uncheck the checkbox</a>
+  <hr/>
+  <h4>Завдання 5</h4>
+  <h5>Checkbox завдання5</h5>
+	<label>
+		<input type="checkbox" ng-model="isChecked5"> Checkbox
+	</label>
+	<br><br>
+	<a href="#" ng-click="isChecked5=!isChecked5">Змінити checkbox</a>
+  <hr/>
+  <h4>Завдання 6</h4>
+  <h5>Checkbox завдання6</h5>
+	<label>
+		<input type="checkbox" ng-model="isChecked1" ng-change="isChecked2=isChecked1"> Checkbox 1
+	</label>
+	<br><br>
+	<label>
+		<input type="checkbox" ng-model="isChecked2" ng-change="isChecked1=isChecked2"> Checkbox 2
+	</label>
+  <hr/>
+  <h4>Завдання 7</h4>
+  <ul>
+    <li ng-repeat="(key, value) in courses">
+      <input type="checkbox" ng-model="courses[key]">
+      {{key}}
+    </li>
+  </ul>
+
+</body>
+
+</html>
