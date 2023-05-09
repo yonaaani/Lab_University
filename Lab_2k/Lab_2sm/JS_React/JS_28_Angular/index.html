@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="styles.css"></script>
+</head>
+
+<body ng-controller="myController">
+  <h4>Завдання 1</h4>
+  <label>Додати країну:</label>
+  <input type="text" ng-model="newCountry">
+  <button ng-click="addCountry()">Додати</button>
+  <br><br>
+  <label>Видалити країну за номером:</label>
+  <input type="number" ng-model="deleteIndex">
+  <button ng-click="deleteCountry()">Видалити</button>
+  <br><br>
+  <ul>
+    <li ng-repeat="country in countries | orderBy:'name'">{{country.name}}</li>
+  </ul>
+  <hr/>
+  <h4>Завдання 2</h4>
+  <label>Додати країну:</label>
+  <input type="text" ng-model="newCountry2">
+  <button ng-click="addCountry2()">Додати</button>
+  <br><br>
+  <label>Видалити країну:</label>
+  <input type="text" ng-model="deleteCountry2">
+  <button ng-click="removeCountry2()">Видалити</button>
+  <br><br>
+  <ul>
+    <li ng-repeat="country2 in countries2 | orderBy:'name'">{{country2.name}}</li>
+  </ul>
+  <hr/>
+  <h4>Завдання 3</h4>
+  <label><input type="checkbox" ng-model="onlyShowCountriesWithP">Показати тільки країни з літерою 'п'</label>
+  <br><br>
+  <ul>
+    <li ng-repeat="country3 in countries3 | filter: filterCountries">{{country3}}</li>
+  </ul>
+  <hr/>
+  <h4>Завдання 4</h4>
+  <label ng-repeat="option in options">
+    <input type="checkbox" ng-model="option.selected">{{option.label}}
+  </label>
+  <br><br>
+  <input type="text" ng-model="checkboxNumbers" ng-change="updateCheckboxes()">
+  <hr/>
+  <h4>Завдання 5</h4>
+  <ul>
+    <li ng-repeat="user in users">{{ user }}</li>
+  </ul>
+  <button ng-click="addUsers()">Додати користувачів</button>
+	<hr/>
+  <h4>Завдання 6</h4>
+  <ul>
+    <li ng-repeat="number in numbers">{{number}}</li>
+  </ul>
+  <p>Сума: {{sum}}</p>
+  <form ng-submit="addNumber()">
+    <input type="number" ng-model="newNumber" required>
+    <button type="submit">Додати</button>
+  <hr/>
+
+</body>
+
+</html>
