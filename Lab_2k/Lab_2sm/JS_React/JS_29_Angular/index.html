@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="styles.css"></script>
+</head>
+
+<body ng-controller="myController">
+  <h3 style="background-color: rgb(245, 210, 215);">На ng-show, ng-hide</h3>
+  <h4>Завдання 1</h4>
+  <input type="checkbox" ng-model="showParagraph"> Show/Hide Paragraph
+  <p ng-show="showParagraph">This is the paragraph to be shown/hidden</p>
+  <hr/>
+  <h4>Завдання 2</h4>
+  <input type="checkbox" ng-model="showParagraph2"> Show/Hide Paragraph
+  <p ng-show="showParagraph2">This is the paragraph to be shown/hidden</p>
+  <hr/>
+  <h4>Завдання 3</h4>
+  <a href="#" ng-click="hideParagraph3()">Hide Paragraph</a>
+  <a href="#" ng-click="showParagraph3()">Show Paragraph</a>
+  <p ng-show="isParagraphVisible3">This is the paragraph to be shown/hidden</p>
+  <hr/>
+  <h4>Завдання 4</h4>
+  <a href="#" ng-click="toggleParagraph4()">Toggle Paragraph</a>
+  <p ng-show="isParagraphVisible4">This is the paragraph to be shown/hidden</p>
+  <hr/>
+  <h4>Завдання 5</h4>
+  <input type="checkbox" ng-model="showParagraph14"> Checkbox 1
+  <p ng-show="showParagraph14">This is the paragraph to be shown/hidden for Checkbox 1</p>
+
+  <input type="checkbox" ng-model="showParagraph24"> Checkbox 2
+  <p ng-show="showParagraph24">This is the paragraph to be shown/hidden for Checkbox 2</p>
+
+  <input type="checkbox" ng-model="showParagraph34"> Checkbox 3
+  <p ng-show="showParagraph34">This is the paragraph to be shown/hidden for Checkbox 3</p>
+  <hr/>
+
+  <h3 style="background-color: rgb(245, 210, 215);">На ng-class</h3>
+  <h4>Завдання 6</h4>
+  <input type="checkbox" ng-model="isChecked">
+  <p ng-style="isChecked && {'color': 'red'} || {'color': ''}">Цей текст може бути червоним</p>  
+  <hr/>
+  <h4>Завдання 7</h4>
+  <input type="checkbox" ng-model="isRed">
+  <input type="checkbox" ng-model="isCrossed">
+  <p ng-class="{'red': isRed, 'crossed': isCrossed}">Цей текст може бути червоним і перекресленим</p>
+  <hr/>
+
+  <h3 style="background-color: rgb(245, 210, 215);">На роботу із селектами</h3>
+  <h4>Завдання 8</h4>
+  <select ng-model="selectedCountry" ng-options="country for country in countries"></select>
+  <hr/>
+  <h4>Завдання 9</h4>
+  <select ng-model="selectedCity" ng-options="city.name for city in cities"></select>
+  <input type="text" ng-model="selectedCity.name" ng-disabled="true" />
+  <hr/>
+  <h4>Завдання 10</h4>
+  <select ng-model="selectedCountry1" ng-options="country1.name for country1 in countries1">
+    <option value="">-- Виберіть країну --</option>
+  </select>
+  <select ng-model="selectedCity1" ng-options="city1.name for city1 in selectedCountry1.cities1">
+    <option value="">-- Виберіть місто --</option>
+  </select>
+
+</body>
+
+</html>
