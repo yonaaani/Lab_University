@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="styles.css"></script>
+</head>
+
+<body ng-controller="myController">
+  <h3 style="background-color: rgb(245, 210, 215);">Фільтри uppercase, lowercase</h3>
+  <h4>Завдання 1</h4>
+  <!-- HTML -->
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Виведення даних користувачів -->
+    <tr ng-repeat="user in users">
+      <td>{{ user.id }}</td>
+      <td>{{ toUpper(user.name) }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </tbody>
+</table>
+  <hr/>
+  <h4>Завдання 2</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Виведення даних користувачів -->
+      <tr ng-repeat="user in users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name.toLowerCase() }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
+
+  <h3 style="background-color: rgb(245, 210, 215);">Фільтр date</h3>
+  <h4>Завдання 3</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Birthday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users3">
+        <td>{{ user.name | lowercase }}</td>
+        <td>{{ formatDate(user.dob) }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
+
+  <h3 style="background-color: rgb(245, 210, 215);">Фільтр orderBy</h3>
+  <h4>Завдання 4</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Date of Birth</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users4 | orderBy:'age'">
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.dateOfBirth | date:'dd.MM.yyyy'}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
+  <h4>Завдання 5</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users4 | orderBy:'-age'">
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
+  <h4>Завдання 6</h4>
+  <input type="checkbox" ng-model="reverse" ng-click="reverse=!reverse"> Тик
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users4 | orderBy:'age':reverse">
+        <td>{{ user.name }}</td>
+        <td>{{ user.age }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
+  <h4>Завдання 7</h4>
+  <select ng-model="sortField">
+    <option value="name">Name</option>
+    <option value="age">Age</option>
+    <input type="checkbox" ng-model="sortReverse">
+<label for="sortReverse">Зворотній порядок</label>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="user in users4 | orderBy:sortField:sortReverse">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>
+  </select>
+<hr/>
+  <h3 style="background-color: rgb(245, 210, 215);">Фільтр orderBy</h3>
+  <h4>Завдання 8</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users8 | limitTo:3">
+        <td>{{ user.name }}</td>
+        <td>{{ user.age }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
+  <h4>Завдання 9</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users8.slice(3,6)">
+        <td>{{ user.name }}</td>
+        <td>{{ user.age }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
+  <h4>Завдання 10</h4>
+  <label>Кількість користувачів:</label>
+<input type="number" ng-model="userCount">
+<label>Початковий користувач:</label>
+<input type="number" ng-model="startUser">
+<ul>
+  <li ng-repeat="user in users8.slice(startUser, startUser + userCount)">{{user.name}}</li>
+</ul>
+<hr/>
+
+<h3 style="background-color: rgb(245, 210, 215);">Фільтр filter</h3>
+<h4>Завдання 11</h4>
+<p>Всі користувачі</p>
+<ul>
+  <li ng-repeat="user in users8">{{user.name}}</li>
+</ul>
+<p>Користувачі із буквою 'a'</p>
+<ul>
+  <li ng-repeat="user in users8 | filter: {name: 'a'}">{{user.name}}</li>
+</ul>
+<hr/>
+<h4>Завдання 12</h4>
+<input type="text" ng-model="searchQuery" ng-change="filterUsers()" />
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in filteredUsers">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr/>
+
+</body>
+
+</html>
