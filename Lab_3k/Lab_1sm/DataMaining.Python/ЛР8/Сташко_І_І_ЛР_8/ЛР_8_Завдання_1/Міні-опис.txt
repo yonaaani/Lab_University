@@ -1,0 +1,21 @@
+Тут хотіла би прокоментувати одразу для наглядності. Для виконання даної лабораторної роботи 
+використала svm модель. На даному скріні показано Підбір параметрів моделі на основі відкладеної та відкладеної валідаційної вибірки, а саме Вибірка з перемішуванням та без, Вибірка Leave one out та Групова вибірка із перемушуванням, оскільки остання потрібна буде у використанні перехресної перевірки з використанням груп.
+На наступному скріні одразу будуть всі виводи:
+
+1. Shape of X_train: (400, 2)
+   Shape of y_train: (400,)
+   Shape of groups: (400,) - ось це вивела матриці розміру для тренувальних даних та змінної groups, оскільки
+                              була помилка саме під час використання перехресної перевірки з використанням груп, 
+                              потрібно було бачити точну розмірність, аби підібрати правильні параметри.
+
+2. Best parameters found on Shuffle Split using Grid Search: {'C': 1, 'gamma': 1, 'kernel': 'rbf'}
+Best parameters found on Leave One Out using Grid Search: {'C': 1, 'gamma': 1, 'kernel': 'linear'}
+Best parameters found on Stratified Shuffle Split using Grid Search: {'C': 1, 'gamma': 1, 'kernel': 'linear'}
+Best parameters found on Group Shuffle Split using Grid Search: {'C': 1, 'gamma': 1, 'kernel': 'rbf'}
+- тут описані всі підбори параметрів з усіма стратегіями саме для Сіткового пошуку(Grid Search), такими як: З перемішуванням та без, Стратифікована вибірка, З випадковими перестановками та остання із використанням груп, відповідно.
+
+3. Best parameters found on Shuffle Split using Random Search: {'kernel': 'linear', 'gamma': 0.1, 'C': 1}
+Best parameters found on Leave One Out using Random Search: {'kernel': 'rbf', 'gamma': 0.1, 'C': 0.1}
+Best parameters found on Stratified Shuffle Split using Random Search: {'kernel': 'linear', 'gamma': 0.1, 'C': 1}
+Best parameters found on Group Shuffle Split using Random Search: {'kernel': 'linear', 'gamma': 0.1, 'C': 1}
+- тут все те саме, тільки для Випадкового пошуку(Random Search).
